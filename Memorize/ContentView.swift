@@ -12,14 +12,12 @@ struct ContentView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
-        HStack {
-            ForEach(viewModel.cards) { card in
+        Grid(viewModel.cards) { card in
                 CardView(card: card).onTapGesture {
                     // TODO: Refactor after new version of SwiftUI.
                     self.viewModel.choose(card: card)
                 }
             }
-        }
             .padding()
             .foregroundColor(Color.orange)
             .font(Font.largeTitle)
@@ -37,7 +35,9 @@ struct CardView: View {
                     RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3)
                     Text(self.card.content)
                 } else {
-                    RoundedRectangle(cornerRadius: 10.0).fill()
+                    if !self.card.isMatched {
+                        RoundedRectangle(cornerRadius: 10.0).fill()
+                    }
                 }
             }.font(Font.system(size: min(geomerty.size.width,geomerty.size.height)))
         }
