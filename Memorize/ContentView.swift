@@ -12,6 +12,7 @@ struct ContentView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
+        VStack{
         Grid(viewModel.cards) { card in
                 CardView(card: card).onTapGesture {
                     // TODO: Refactor after new version of SwiftUI.
@@ -21,6 +22,20 @@ struct ContentView: View {
             .padding()
             .foregroundColor(Color.orange)
             .font(Font.largeTitle)
+            
+            Button(action: {
+                self.viewModel.shuffle()
+               }) {
+                   Text("Shuffle")
+                   .fontWeight(.bold)
+                   .font(.title)
+                   .padding()
+                   .background(Color.purple)
+                   .foregroundColor(.white)
+                   .padding(2)
+                   .border(Color.purple, width: 5)
+               }
+        }
     }
 }
 
