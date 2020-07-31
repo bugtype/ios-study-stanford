@@ -22,19 +22,26 @@ struct ContentView: View {
             .padding()
             .foregroundColor(Color.orange)
             .font(Font.largeTitle)
-            
-            Button(action: {
-                self.viewModel.shuffle()
-               }) {
-                   Text("Shuffle")
-                   .fontWeight(.bold)
-                   .font(.title)
-                   .padding()
-                   .background(Color.purple)
-                   .foregroundColor(.white)
-                   .padding(2)
-                   .border(Color.purple, width: 5)
-               }
+            HStack{
+                Text(String(viewModel.score))
+                .font(.title)
+                .padding()
+                .foregroundColor(.black)
+                .padding(2)                
+                Button(action: {
+                             self.viewModel.shuffle()
+                            }) {
+                                Text("Shuffle")
+                                .fontWeight(.bold)
+                                .font(.title)
+                                .padding()
+                                .background(Color.purple)
+                                .foregroundColor(.white)
+                                .padding(2)
+                                .border(Color.purple, width: 5)
+                            }
+            }
+         
         }
     }
 }

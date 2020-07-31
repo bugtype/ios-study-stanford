@@ -24,6 +24,10 @@ class EmojiMemoryGame : ObservableObject {
         model.cards
     }
     
+    var score: Int {
+        model.score
+    }
+    
     // MARK: - Intent(s)
     
     func choose(card: MemoryGame<String>.Card) {
@@ -32,6 +36,11 @@ class EmojiMemoryGame : ObservableObject {
     }
     
     func shuffle() {
+        objectWillChange.send()
         model.shuffle()
+    }
+    
+    func updatePoint() {
+        
     }
 }
