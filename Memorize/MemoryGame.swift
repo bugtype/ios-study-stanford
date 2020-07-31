@@ -34,6 +34,12 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
               }
     }
     
+    mutating func shuffle() {
+        cards = self.cards.shuffled()
+    }
+    
+    
+    
     func index(of card: Card) -> Int{
         for index in 0..<self.cards.count {
             if self.cards[index].id == card.id {
