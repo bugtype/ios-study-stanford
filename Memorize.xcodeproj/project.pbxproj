@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BCBC05124D884F8008E5181 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCBC05024D884F8008E5181 /* Themes.swift */; };
 		6712837824988C4700340253 /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6712837724988C4700340253 /* MemoryGame.swift */; };
 		6712837A24988E3F00340253 /* EmojiMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6712837924988E3F00340253 /* EmojiMemoryGame.swift */; };
 		672FCBD52498702800D0800A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672FCBD42498702800D0800A /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BCBC05024D884F8008E5181 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		6712837724988C4700340253 /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		6712837924988E3F00340253 /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
 		672FCBD12498702800D0800A /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +85,7 @@
 				C46BA13624D0F5C1006DE06A /* Grid.swift */,
 				C46BA13824D0F5FD006DE06A /* Array+Identifiable.swift */,
 				C46BA13A24D0F780006DE06A /* Array+Only.swift */,
+				0BCBC05024D884F8008E5181 /* Themes.swift */,
 			);
 			path = Memorize;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				672FCBD52498702800D0800A /* AppDelegate.swift in Sources */,
 				672FCBD72498702800D0800A /* SceneDelegate.swift in Sources */,
 				6712837824988C4700340253 /* MemoryGame.swift in Sources */,
+				0BCBC05124D884F8008E5181 /* Themes.swift in Sources */,
 				C46BA13B24D0F780006DE06A /* Array+Only.swift in Sources */,
 				C46BA13524D0F57F006DE06A /* GridLayout.swift in Sources */,
 				672FCBD92498702800D0800A /* ContentView.swift in Sources */,
