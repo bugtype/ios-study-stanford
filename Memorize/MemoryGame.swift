@@ -9,7 +9,10 @@
 import Foundation
 
 struct MemoryGame<CardContent> where CardContent: Equatable {
+    var score: Int!
     var cards: Array<Card>
+    var numberOfPairsOfCards: Int!
+    var cardContentFactory: (Int) -> CardContent?
     
        private var indexOfTheOneAndOnlyFaceUpCard: Int? {
          get { cards.indices.filter {cards[$0].isFaceUp}.only }
@@ -26,6 +29,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                       if cards[chosenIndex].content == cards[potentialMatchIndex].content {
                           cards[chosenIndex].isMatched = true
                           cards[potentialMatchIndex].isMatched = true
+                        score+=1
                       }
                       cards[chosenIndex].isFaceUp = true
                   } else {
@@ -35,7 +39,14 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
     
     mutating func shuffle() {
-        cards = self.cards.shuffled()
+        cards = Array<Card>()
+        for pairIndex in 0..<self.numberOfPairsOfCards {
+            let content = self.cardContentFactory(pairIndex)!
+            cards.append(Card(content: content, id: pairIndex*2))
+            cards.append(Card(content: content, id: pairIndex*2+1))
+        }
+        cards = cards.shuffled()
+        self.score = 0
     }
     
     
@@ -49,13 +60,17 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         return 0
     }
     
-    init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
+    init(numberOfPairsOfCards: Int, cardContentFactory: @escaping (Int) -> CardContent) {
         cards = Array<Card>()
+        self.score = 0
+        self.numberOfPairsOfCards = numberOfPairsOfCards
+        self.cardContentFactory = cardContentFactory
         for pairIndex in 0..<numberOfPairsOfCards {
             let content = cardContentFactory(pairIndex)
             cards.append(Card(content: content, id: pairIndex*2))
             cards.append(Card(content: content, id: pairIndex*2+1))
         }
+        cards = cards.shuffled()
     }
     
     struct Card: Identifiable {
