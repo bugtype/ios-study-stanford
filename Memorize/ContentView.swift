@@ -23,6 +23,11 @@ struct ContentView: View {
             .foregroundColor(Color.orange)
             .font(Font.largeTitle)
             HStack{
+                Text("Theme : " + String(viewModel.theme.name))
+                .font(.title)
+                .padding()
+                .foregroundColor(.black)
+                .padding(2)
                 Text(String(viewModel.score))
                 .font(.title)
                 .padding()
